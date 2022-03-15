@@ -16,13 +16,27 @@
         android:elevation="8dp"
         app:cardCornerRadius="8dp">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/photo_image"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:scaleType="centerCrop"
-            android:layout_height="200dp"
-            app:urlToImage="@{photo}"/>
+            android:layout_height="wrap_content">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/photo_image"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_height="200dp"
+                app:urlToImage="@{photo}"/>
+
+            <TextView
+                android:id="@+id/photo_title_textview"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@{photo.title}"
+                android:maxLines="2"
+                android:layout_below="@+id/photo_image"/>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

@@ -1,0 +1,83 @@
+{
+  "keywords":[
+    {
+      "parent_name":"Animals",
+      "sub_category":"Pets",
+      "child_category":[
+        "Guppy",
+        "Parrot",
+        "GoldFish",
+        "Dog Cat"
+      ]
+    },
+    {
+      "parent_name":"Animals",
+      "sub_category":"Wild animals",
+      "child_category":[
+        "Tiger",
+        "Ant",
+        "Tetra",
+        "Peafowl",
+        "Mongoose"
+      ]
+    },
+    {
+      "parent_name":"Animals",
+      "sub_category":"Domestic animals",
+      "child_category":[
+        "Cow",
+        "ig",
+        "Goat",
+        "Horse"
+      ]
+    },
+    {
+      "parent_name":"Food",
+      "sub_category":"Fast food",
+      "child_category":[
+        "Cheeseburger",
+        "Hamburger"
+      ]
+    },
+    {
+      "parent_name":"Food",
+      "sub_category":"Dessert",
+      "child_category":[
+        "Chocolate",
+        "Cookie",
+        "Cake",
+        "Pie"
+      ]
+    },
+    {
+      "parent_name":"Vehicle",
+      "sub_category":"Motorcycle",
+      "child_category":[
+        "Harley Davidson"
+      ]
+    },
+    {
+      "parent_name":"Food",
+      "sub_category":"Car",
+      "child_category":[
+        "Lamborghini",
+        "Ferrari",
+        "Bugatti",
+        "BMW",
+        "Mercedes"
+      ]
+    },
+    {
+      "parent_name":"Movie",
+      "sub_category":"Science fiction",
+      "child_category":[
+        "Sunshine",
+        "Interstellar",
+        "The Moon",
+        "Oblivion",
+        "Star Trek",
+        "Star Wars"
+      ]
+    }
+  ]
+}

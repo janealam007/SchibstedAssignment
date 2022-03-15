@@ -11,7 +11,7 @@ import com.tori.schibsted.databinding.PhotoSearchItemBinding
 class PhotoSearchAdapter : RecyclerView.Adapter<PhotoSearchAdapter.MyViewHolder>() {
 
     private var listener :((PhotoDto)->Unit)?=null
-    var list = mutableListOf<PhotoDto>()
+    private var list = mutableListOf<PhotoDto>()
 
     @SuppressLint("NotifyDataSetChanged")
     fun setContentList(list: MutableList<PhotoDto>) {
@@ -31,8 +31,8 @@ class PhotoSearchAdapter : RecyclerView.Adapter<PhotoSearchAdapter.MyViewHolder>
         return MyViewHolder(binding)
     }
 
-    fun itemClickListener(l:(PhotoDto)->Unit){
-        listener= l
+    fun itemClickListener(photo:(PhotoDto)->Unit){
+        listener= photo
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

@@ -1,14 +1,15 @@
 package com.tori.schibsted.presentation.main
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.SearchView
+import android.widget.AdapterView.OnItemClickListener
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.coroutineScope
+import com.tori.schibsted.R
 import com.tori.schibsted.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -17,10 +18,10 @@ import kotlinx.coroutines.flow.collect
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val searchAdapter = PhotoSearchAdapter()
-    private val viewModel: PhotoSearchViewModel by viewModels()
+    private val photoSearchViewModel: PhotoSearchViewModel by viewModels()
 
     private var _binding: ActivityMainBinding? = null
-    val binding: ActivityMainBinding
+    private val binding: ActivityMainBinding
         get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,37 +29,39 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding?.root)
 
+        photoSearchApiCallback()
         initUI()
     }
 
     private fun initUI() {
+        //Photo adapter recycle view
         binding.photoSearchRecycler.apply {
             adapter = searchAdapter
         }
-
-        binding.photoSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(s: String?): Boolean {
-                s?.let {
-                    Log.d("onQueryTextSubmit"," ...: "+ s )
-                    viewModel.getSearchPhotos(it)
-                }
-                return false
-            }
-
-            override fun onQueryTextChange(p0: String?): Boolean {
-                return false
-            }
-        })
-
         searchAdapter.itemClickListener {
         }
 
-        photoSearchApiCallback()
+        // Auto suggestions adapter
+        val keywordAdapter = ArrayAdapter(
+            this@MainActivity,
+            R.layout.simple_dropdown_item, photoSearchViewModel.getSearchKeywords(this@MainActivity)
+        )
+        binding.autoSuggestionTextview.setAdapter(keywordAdapter)
+
+        //Auto suggestion item selected
+        binding.autoSuggestionTextview.onItemClickListener =
+            OnItemClickListener { adapterView, view, itemIndex, id ->
+                //Hide Keyboard
+                photoSearchViewModel.hideSoftKeyboard(this@MainActivity, binding.autoSuggestionTextview)
+                val queryItem = adapterView.getItemAtPosition(itemIndex) as String
+                photoSearchViewModel.getSearchPhotos(queryItem)
+            }
     }
 
+    // View Model data change listener for api
     private fun photoSearchApiCallback(){
         lifecycle.coroutineScope.launchWhenCreated {
-            viewModel.photoSearchList.collect {
+            photoSearchViewModel.photoSearchList.collect { it ->
                 if (it.isLoading) {
                     binding.nothingFound.visibility = View.GONE
                     binding.progressPhotoSearch.visibility = View.VISIBLE
@@ -79,4 +82,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    //Before leaving the activity emptying the binding
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+
+
+
 }
