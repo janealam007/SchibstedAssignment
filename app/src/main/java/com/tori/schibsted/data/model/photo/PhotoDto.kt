@@ -1,4 +1,4 @@
-package com.gaur.mealsearch.data.model.photo
+package com.tori.schibsted.data.model.photo
 
 data class PhotoDto(
     val farm: Int,

@@ -1,6 +1,7 @@
 package com.tori.schibsted.data.remote
 
-import com.gaur.mealsearch.data.model.photo.PhotoResponseDto
+
+import com.tori.schibsted.data.model.photo.PhotoResponseDto
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 

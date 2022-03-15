@@ -2,6 +2,8 @@ package com.tori.schibsted.hilt
 
 import com.tori.schibsted.common.Constants
 import com.tori.schibsted.data.remote.SchibstedApi
+import com.tori.schibsted.data.repository.PhotoSearchRepositoryImpl
+import com.tori.schibsted.domain.repository.PhotoSearchRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,4 +25,8 @@ object HiltAppModules {
             .create(SchibstedApi::class.java)
     }
 
+    @Provides
+    fun providePhotoSearchRepository(photoSearchAPI: SchibstedApi): PhotoSearchRepository {
+        return PhotoSearchRepositoryImpl(photoSearchAPI)
+    }
 }
