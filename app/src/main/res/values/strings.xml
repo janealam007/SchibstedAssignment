@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Schibsted Assignment</string>
     <string name="nothing_found">Nothing Found</string>
-<!--    <string name="search_images">Search images</string>-->
     <string name="search_photo_here">Search Photo here</string>
-<!--    <string name="title">Title</string>-->
 </resources>
