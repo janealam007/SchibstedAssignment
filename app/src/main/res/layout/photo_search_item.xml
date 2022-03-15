@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    >
 
     <data>
         <variable
@@ -9,42 +9,21 @@
             type="com.tori.schibsted.data.model.photo.PhotoDto" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:orientation="vertical"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp">
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/photo_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/view_holder_image"
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:scaleType="centerCrop"
-                android:src="@color/black"
-                app:urlToImage="@{photo}"
-                tools:src="@drawable/ic_baseline_image_24"
-                android:contentDescription="@string/search_images" />
+            android:scaleType="centerCrop"
+            android:layout_height="200dp"
+            app:urlToImage="@{photo}"/>
 
 
-            <TextView
-                android:id="@+id/view_holder_item_name"
-                style="@style/TextAppearance.AppCompat.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@{photo.title}"
-                tools:text="Chicken" />
+    </androidx.cardview.widget.CardView>
 
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-    </com.google.android.material.card.MaterialCardView>
 </layout>
