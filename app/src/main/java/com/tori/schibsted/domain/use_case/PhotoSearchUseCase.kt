@@ -1,6 +1,5 @@
 package com.tori.schibsted.domain.use_case
 
-import android.util.Log
 import com.tori.schibsted.common.Resource
 import com.tori.schibsted.data.model.photo.PhotoResponseDto
 import com.tori.schibsted.domain.repository.PhotoSearchRepository

@@ -1,6 +1,5 @@
 package com.tori.schibsted.presentation.main
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tori.schibsted.common.Resource
