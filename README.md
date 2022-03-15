@@ -16,7 +16,9 @@ Schibsted / Tori.fi Android Developer assignment
 
 7. Image loading library(Glide)
 
-8. Xml databinding
+8. Xml databinding, ViewModel(Jetpack)
+
+9. Android Unit-Test(Google truth && Junit-Test)
 
 ## Installation
 plugins(app/gradle)
@@ -49,8 +51,11 @@ Dependency library list(app/gradle)
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+
     testImplementation 'junit:junit:4.13.2'
+    testImplementation "com.google.truth:truth:1.1"
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation "com.google.truth:truth:1.1"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
