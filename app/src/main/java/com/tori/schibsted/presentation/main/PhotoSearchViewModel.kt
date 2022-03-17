@@ -96,7 +96,4 @@ class PhotoSearchViewModel @Inject constructor(
         manager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-
-
-
 }
