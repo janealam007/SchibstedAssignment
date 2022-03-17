@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.tori.schibsted.R
-import com.tori.schibsted.data.model.photo.PhotoDto
+import com.tori.schibsted.network.data.photo.PhotoDto
 
 @BindingAdapter("urlToImage")
 fun urlToImage(view: ImageView, photo: PhotoDto?) {
