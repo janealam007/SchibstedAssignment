@@ -6,7 +6,7 @@
     <data>
         <variable
             name="photo"
-            type="com.tori.schibsted.data.model.photo.PhotoDto" />
+            type="com.tori.schibsted.network.data.photo.PhotoDto" />
     </data>
 
     <androidx.cardview.widget.CardView
